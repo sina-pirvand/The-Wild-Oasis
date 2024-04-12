@@ -7,7 +7,20 @@ export const getCabins = async () => {
 
   if (error) {
     console.log(error);
-    throw new Error("Couldn't Load Cbins");
+    throw new Error("Couldn't Load Cabins");
+  }
+
+  return data;
+};
+
+export const deleteCabin = async (id) => {
+  // supabase doc provided code
+  const { data, error } = await supabase.from("cabins").delete().eq("id", id);
+  //
+
+  if (error) {
+    console.log(error);
+    throw new Error("Couldn't Delete Cabin");
   }
 
   return data;
